@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes/auth.routes.js";
 import circuitRoutes from "./routes/circuitRoutes/circuit.routes.js";
 import energyRoutes from "./routes/energyRoutes/energy.routes.js";
 import { connectDB } from "./lib/connectDB.js";
+import mongoose from 'mongoose';
 
 
 
@@ -35,7 +36,15 @@ app.use("/api/energy", energyRoutes);
 
 
 
+async function main() {
+  await mongoose.connect(process.env.MONGODB_URI);
+  app.use("/", (req, res) => {
+    res.send("Book Store Server is running!");
+  });
+}
+
+main().then(() => console.log("Mongodb connect successfully!")).catch(err => console.log(err));
+
 app.listen(PORT, () => {
-	connectDB();
-	console.log("Server is running on port: ", PORT);
+  console.log(`Example app listening on port ${PORT}`);
 });
