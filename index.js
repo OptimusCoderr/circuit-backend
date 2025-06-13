@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
-app.use(cors({ origin: "https://circuit-frontend-kappa.vercel.app",
+app.use(cors({ origin: "https://circuit-frontend-git-master-chukwuebukas-projects-c7590b36.vercel.app",
 	 credentials: true }));
 
 app.use(express.json()); // allows us to parse incoming requests:req.body
