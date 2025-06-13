@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
-app.use(cors({ origin:"https://circuit-frontend-kappa.vercel.app",
+app.use(cors({ origin: "https://circuit-frontend-kappa.vercel.app",
 	 credentials: true }));
 
 app.use(express.json()); // allows us to parse incoming requests:req.body
@@ -31,13 +31,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/circuit",circuitRoutes);
 app.use("/api/energy", energyRoutes);
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-	});
-}
 
 
 
