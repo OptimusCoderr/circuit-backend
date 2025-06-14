@@ -21,7 +21,8 @@ app.use(cors({
   origin: [
     "https://circuit-monitor.vercel.app",
     "https://optimuscoderr.github.io/circuit-frontend/",
-    "https://optimuscoderr.github.io"
+    "https://optimuscoderr.github.io",
+    "https://circuit-frontend-kappa.vercel.app"
   ],
   credentials: true 
 }));
