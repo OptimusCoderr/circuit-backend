@@ -8,9 +8,9 @@ router.post("/signup", signup)
 
 router.post("/login", login)
 
-router.post("/logout", logout)
+router.post("/logout",protectRoute, logout)
 
-router.get("/check-auth", protectRoute, checkAuth);
+router.get("/check-auth", checkAuth);
 
 
 export default router;
