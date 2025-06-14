@@ -20,7 +20,8 @@ const __dirname = path.resolve();
 app.use(cors({ 
   origin: [
     "https://circuit-monitor.vercel.app",
-    "https://optimuscoderr.github.io/circuit-frontend/"
+    "https://optimuscoderr.github.io/circuit-frontend/",
+    "https://optimuscoderr.github.io"
   ],
   credentials: true 
 }));
