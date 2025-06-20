@@ -6,6 +6,7 @@ import path from "path";
 import authRoutes from "./src/routes/authRoutes/auth.routes.js";
 import circuitRoutes from "./src/routes/circuitRoutes/circuit.routes.js";
 import energyRoutes from "./src/routes/energyRoutes/energy.routes.js";
+import controlRoutes from "./src/routes/controlRoutes/control.routes.js";
 import { connectDB } from "./src/lib/connectDB.js";
 import mongoose from 'mongoose';
 
@@ -23,7 +24,9 @@ app.use(cors({
     "https://optimuscoderr.github.io/circuit-frontend/",
     "https://optimuscoderr.github.io",
     "https://circuit-frontend-kappa.vercel.app",
-    "https://circuit-frontend-chi.vercel.app"
+    "https://circuit-frontend-chi.vercel.app",
+    "http://localhost:5173"
+
   ],
   credentials: true 
 }));
@@ -39,6 +42,7 @@ app.use(cookieParser()); // allows us to parse incoming cookies
 app.use("/api/auth", authRoutes);
 app.use("/api/circuit",circuitRoutes);
 app.use("/api/energy", energyRoutes);
+app.use("/api/control", controlRoutes);
 
 
 
@@ -47,7 +51,7 @@ app.use("/api/energy", energyRoutes);
 async function main() {
   await mongoose.connect(process.env.MONGODB_URI);
   app.use("/", (req, res) => {
-    res.send("Book Store Server is running!");
+    res.send("Circuit Store Server is running!");
   });
 }
 
